@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF8B3DAE1E42583B00BBE6BD /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8B3DAD1E42583B00BBE6BD /* APITest.swift */; };
 		BF9D39231E41194700924711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D39221E41194700924711 /* AppDelegate.swift */; };
 		BF9D39251E41194700924711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D39241E41194700924711 /* ViewController.swift */; };
 		BF9D39281E41194700924711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9D39261E41194700924711 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF8B3DAD1E42583B00BBE6BD /* APITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		BF9D391F1E41194700924711 /* MovieKitten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieKitten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9D39221E41194700924711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9D39241E41194700924711 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				BF9D39371E41194800924711 /* MovieKittenTests.swift */,
 				BF9D39391E41194800924711 /* Info.plist */,
+				BF8B3DAD1E42583B00BBE6BD /* APITest.swift */,
 			);
 			path = MovieKittenTests;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8B3DAE1E42583B00BBE6BD /* APITest.swift in Sources */,
 				BF9D39381E41194800924711 /* MovieKittenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +412,7 @@
 				BF9D393E1E41194800924711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF9D393F1E41194800924711 /* Build configuration list for PBXNativeTarget "MovieKittenTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +421,7 @@
 				BF9D39411E41194800924711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,30 +7,34 @@
 //
 
 import UIKit
+import Foundation
 
 class APIWrapper: NSObject {
-    static func test() {
-        let url = URL(string: "https://www.omdbapi.com/?t=star&y=&plot=short&r=json")!
+    typealias Response = (_ data: Any?, _ error: Error?) -> Void
+    
+    static func test(completion: @escaping Response) {
+        let url = URL(string: "https://www.omdbapi.com/?t=star&y=&type=movies&plot=short&r=json")!
         let session = URLSession.shared
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil else {
-                print("connection error: \(error)")
+                completion(nil, error)
                 return
             }
             
             guard let data = data else {
+                completion(nil, error)
                 return
             }
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
+                    completion(json, nil)
                 }
             } catch let error {
-                print(error.localizedDescription)
+                completion(nil, error)
             }
         })
         
