@@ -24,13 +24,13 @@ class APITest: XCTestCase {
     func testAPICallback() {
         let exp = expectation(description: "API wrapper returns data in callback")
         
-        APIWrapper.test { (data, error) in
+        APIWrapper.search(title: "star", completion: { (data, error) in
             XCTAssertNotNil(data)
             XCTAssertNil(error)
             exp.fulfill()
-        }
+        })
             
-        waitForExpectations(timeout: 5) { error in
+        waitForExpectations(timeout: 10) { error in
             if let error = error {
                 XCTFail("waitForExpectations timeout errored: \(error)")
             }

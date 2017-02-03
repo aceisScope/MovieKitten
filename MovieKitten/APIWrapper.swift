@@ -12,8 +12,8 @@ import Foundation
 class APIWrapper: NSObject {
     typealias Response = (_ data: Any?, _ error: Error?) -> Void
     
-    static func test(completion: @escaping Response) {
-        let url = URL(string: "https://www.omdbapi.com/?t=star&y=&type=movies&plot=short&r=json")!
+    static func search(title: String, page: Int = 1, completion: @escaping Response) {
+        let url = URL(string: "https://www.omdbapi.com/?s=\(title)&page=\(page)")!
         let session = URLSession.shared
         let request = URLRequest(url: url)
         
