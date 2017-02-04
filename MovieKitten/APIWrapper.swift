@@ -14,7 +14,9 @@ class APIWrapper: NSObject {
     
     static func search(title: String, page: Int = 1, completion: @escaping Response) {
         let url = URL(string: "https://www.omdbapi.com/?s=\(title)&page=\(page)")!
-        let session = URLSession.shared
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 10
+        let session = URLSession(configuration: config)
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
