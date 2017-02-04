@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,7 +64,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="WDC-89-tIL">
                     <connections>
-                        <action selector="catTapped:" destination="BYZ-38-t0r" id="tJl-0t-Smd"/>
+                        <action selector="catTapped:" destination="BYZ-38-t0r" id="hsI-wd-sQl"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -85,19 +86,33 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="0lV-Mm-FvE">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="145" height="192"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="VIX-op-jFh">
-                                        <rect key="frame" x="5" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="VIX-op-jFh" customClass="MovieCollectionViewCell" customModule="MovieKitten" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="0.0" width="145" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09u-SA-2di">
+                                                    <rect key="frame" x="5" y="2" width="135" height="153.5"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="09u-SA-2di" secondAttribute="trailing" constant="5" id="6gw-Av-WZZ"/>
+                                            <constraint firstItem="09u-SA-2di" firstAttribute="top" secondItem="VIX-op-jFh" secondAttribute="top" constant="2" id="ASW-S2-ayG"/>
+                                            <constraint firstItem="09u-SA-2di" firstAttribute="height" secondItem="VIX-op-jFh" secondAttribute="height" multiplier="0.8" id="Tyb-ZS-jci"/>
+                                            <constraint firstItem="09u-SA-2di" firstAttribute="leading" secondItem="VIX-op-jFh" secondAttribute="leading" constant="5" id="xvC-sh-3hT"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="moviePoster" destination="09u-SA-2di" id="4NZ-Oh-BMW"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -120,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHz-Lh-8Y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265" y="95"/>
+            <point key="canvasLocation" x="264.80000000000001" y="94.902548725637189"/>
         </scene>
     </scenes>
     <resources>

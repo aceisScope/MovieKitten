@@ -9,6 +9,8 @@
 import UIKit
 
 class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
+
+    var movies = [Dictionary<String, String>]()
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -41,9 +43,9 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MovieCollectionViewCell
+        cell.movie = movies[indexPath.item]
 
-        cell.backgroundColor = .red
         return cell
     }
 

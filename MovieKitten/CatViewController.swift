@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import Foundation
 
 class CatViewController: UIViewController {
+
+    private let movieSegue = "showMoviesSegue"
+    private let searchKey = "Search"
+    private var movieResults:Dictionary<String, AnyObject> = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func catTapped(_ sender: Any) {
-        performSegue(withIdentifier: "showMoviesSegue", sender: self)
+        APIWrapper.search(title: "batman") { (data, error) in
+            guard error == nil else { return }
+
+            self.movieResults = data as! Dictionary<String, AnyObject>
+            guard let _ = self.movieResults[self.searchKey] else { return }
+
+            DispatchQueue.main.sync {
+                self.performSegue(withIdentifier: self.movieSegue, sender: self)
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == movieSegue else { return }
+        let viewController = segue.destination as! MovieViewController
+        viewController.movies = self.movieResults[searchKey] as! [Dictionary<String, String>]
     }
 }
