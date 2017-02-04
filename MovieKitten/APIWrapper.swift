@@ -64,10 +64,7 @@ class APIWrapper: NSObject {
             }
 
             do {
-                let datastring = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-                print(datastring)
-
-                if let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as? [String: Any] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     completion(json, nil)
                 }
             } catch let error {
