@@ -21,15 +21,31 @@ class APITest: XCTestCase {
         super.tearDown()
     }
     
-    func testAPICallback() {
-        let exp = expectation(description: "API wrapper returns data in callback")
-        
+    func testSearchAPICallback() {
+        let exp = expectation(description: "Search API returns data in callback")
+
         APIWrapper.search(title: "star", completion: { (data, error) in
             XCTAssertNotNil(data)
             XCTAssertNil(error)
             exp.fulfill()
         })
             
+        waitForExpectations(timeout: 10) { error in
+            if let error = error {
+                XCTFail("waitForExpectations timeout errored: \(error)")
+            }
+        }
+    }
+
+    func testDetailAPICallback() {
+        let exp = expectation(description: "Detail API returns data in callback")
+
+        APIWrapper.detail(imdbID: "tt0076759", completion: { (data, error) in
+            XCTAssertNotNil(data)
+            XCTAssertNil(error)
+            exp.fulfill()
+        })
+
         waitForExpectations(timeout: 10) { error in
             if let error = error {
                 XCTFail("waitForExpectations timeout errored: \(error)")

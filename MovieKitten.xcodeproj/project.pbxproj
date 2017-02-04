@@ -89,11 +89,11 @@
 				6D03850C1E45175D000F6B4F /* CatViewController.swift */,
 				BF9D39241E41194700924711 /* MovieViewController.swift */,
 				6D03850E1E45E966000F6B4F /* MovieCollectionViewCell.swift */,
+				BF9D39421E411C6400924711 /* APIWrapper.swift */,
 				BF9D39261E41194700924711 /* Main.storyboard */,
 				BF9D39291E41194700924711 /* Assets.xcassets */,
 				BF9D392B1E41194700924711 /* LaunchScreen.storyboard */,
 				BF9D392E1E41194700924711 /* Info.plist */,
-				BF9D39421E411C6400924711 /* APIWrapper.swift */,
 			);
 			path = MovieKitten;
 			sourceTree = "<group>";
