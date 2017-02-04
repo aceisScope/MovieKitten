@@ -102,22 +102,34 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09u-SA-2di">
                                                     <rect key="frame" x="5" y="2" width="135" height="153.5"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-RS-pBk" userLabel="Title">
+                                                    <rect key="frame" x="5" y="163" width="135" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="09u-SA-2di" secondAttribute="trailing" constant="5" id="6gw-Av-WZZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="aXd-RS-pBk" secondAttribute="bottom" constant="5" id="7gJ-GK-ngE"/>
                                             <constraint firstItem="09u-SA-2di" firstAttribute="top" secondItem="VIX-op-jFh" secondAttribute="top" constant="2" id="ASW-S2-ayG"/>
                                             <constraint firstItem="09u-SA-2di" firstAttribute="height" secondItem="VIX-op-jFh" secondAttribute="height" multiplier="0.8" id="Tyb-ZS-jci"/>
+                                            <constraint firstItem="aXd-RS-pBk" firstAttribute="leading" secondItem="09u-SA-2di" secondAttribute="leading" id="iyq-FG-Ig3"/>
+                                            <constraint firstItem="aXd-RS-pBk" firstAttribute="trailing" secondItem="09u-SA-2di" secondAttribute="trailing" id="nrf-yM-hOP"/>
+                                            <constraint firstItem="aXd-RS-pBk" firstAttribute="top" secondItem="09u-SA-2di" secondAttribute="bottom" constant="7.5" id="xIK-tZ-TWO"/>
                                             <constraint firstItem="09u-SA-2di" firstAttribute="leading" secondItem="VIX-op-jFh" secondAttribute="leading" constant="5" id="xvC-sh-3hT"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="moviePoster" destination="09u-SA-2di" id="4NZ-Oh-BMW"/>
+                                            <outlet property="titleLabel" destination="aXd-RS-pBk" id="NAu-iv-JHZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="yxh-U6-4oU" id="2Pc-DQ-7FF"/>
                                     <outlet property="delegate" destination="yxh-U6-4oU" id="13V-l8-txD"/>
+                                    <outlet property="prefetchDataSource" destination="yxh-U6-4oU" id="eYx-OH-MIV"/>
                                 </connections>
                             </collectionView>
                         </subviews>

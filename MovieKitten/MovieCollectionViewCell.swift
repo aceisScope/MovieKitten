@@ -14,12 +14,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let imageURL = movie[posterKey] else { return }
             moviePoster.loadImageFromServerURL(urlString: imageURL)
+
+            guard let title = movie[titleKey] else { return }
+            titleLabel.text = title
         }
     }
 
     private let posterKey = "Poster"
+    private let titleKey = "Title"
     
     @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
 
     override func awakeFromNib() {
 

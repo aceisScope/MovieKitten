@@ -20,7 +20,7 @@ class CatViewController: UIViewController {
     }
 
     @IBAction func catTapped(_ sender: Any) {
-        APIWrapper.search(title: "batman") { (data, error) in
+        APIWrapper.search(title: "star") { (data, error) in
             guard error == nil else { return }
 
             self.movieResults = data as! Dictionary<String, AnyObject>

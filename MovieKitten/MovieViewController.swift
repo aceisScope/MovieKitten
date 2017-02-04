@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
+class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching, UIScrollViewDelegate {
 
     var movies = [Dictionary<String, String>]()
     
@@ -39,7 +39,7 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,27 +75,40 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         return CGSize(width: sizeWidth, height: sizeWidth * 1.5)
     }
 
-// MARK: Scroll
+// MARK: Prefetch
 
-    private func isNearBottomOfScroll(within margin: CGFloat) -> Bool {
-        guard let view = collectionView, view.contentSize.height > 0 else {
-            return true
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let lastItem = IndexPath(item: movies.count - 1, section: 0)
+        if indexPaths.contains(lastItem) {
+            if !isSearching && canSearchMore {
+                isSearching = true
+                currentPage += 1
+                APIWrapper.search(title: "star", page: currentPage, completion: { (data, error) in
+                    self.isSearching = false
+
+                    guard error == nil else {
+                        self.canSearchMore = false
+                        return
+                    }
+                    guard let more = (data as! Dictionary<String, AnyObject>)[self.searchKey] else { return }
+                    self.movies.append(contentsOf: (more as! [Dictionary<String, String>]))
+
+                    DispatchQueue.main.sync {
+                        self.collectionView.reloadData()
+                    }
+                })
+            }
         }
-        return (view.contentOffset.y + view.contentInset.top) < (margin + 1)
     }
 
-    private func isNearTopOfScroll(within margin: CGFloat) -> Bool {
-        guard let view = collectionView, view.contentSize.height > 0 else {
-            return true
-        }
-        return (view.contentOffset.y + view.bounds.size.height + 1) > (view.contentInset.bottom + view.contentSize.height - margin)
-    }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if isNearBottomOfScroll(within: 1) {
-            
-        }
-    }
+// MARK: Data
+
+    private var currentPage:Int = 1
+    private var isSearching = false
+    private var canSearchMore = true
+
+    private let searchKey = "Search"
 
 // MARK: Rotate
 
