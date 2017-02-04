@@ -77,6 +77,8 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
 
 // MARK: Prefetch
 
+    /// Unfortunately the paging doesn't work properly on OMDB.
+    /// Temporary solution is to check if it returns any error, then we assume there's no more pages. 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let lastItem = IndexPath(item: movies.count - 1, section: 0)
         if indexPaths.contains(lastItem) {
