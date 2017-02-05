@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
 
     func loadPosterImage() {
         guard let posterURL = movie[posterKey] else {
+            poster.image = UIImage(named: "placeholder_cat.jpg")
             return
         }
 

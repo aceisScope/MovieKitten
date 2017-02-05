@@ -26,4 +26,20 @@ class BaseViewController: UIViewController {
         self.present(alertController, animated: true)
     }
 
+    func displayActivityIndicator() {
+        let alert = UIAlertController(title: nil, message: "Movie Kitten is working...", preferredStyle: .alert)
+
+        alert.view.tintColor = UIColor.black
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+
+    func removeActivityIndcator(completion: @escaping (() -> Void)) {
+        dismiss(animated: false, completion: completion)
+    }
 }

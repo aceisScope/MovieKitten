@@ -67,17 +67,24 @@ class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             displayErrorMessage()
             return
         }
+
+        displayActivityIndicator()
+
         APIWrapper.detail(imdbID: imdb) { (data, error) in
             guard error == nil else {
-                DispatchQueue.main.async {
-                    self.displayErrorMessage()
+                DispatchQueue.main.sync {
+                    self.removeActivityIndcator(completion: {
+                        self.displayErrorMessage()
+                    })
                 }
                 return
             }
 
             self.movieDetail = data as! Dictionary<String, String>
             DispatchQueue.main.sync {
-                self.performSegue(withIdentifier: self.detailSegue, sender: self)
+                self.removeActivityIndcator(completion: {
+                    self.performSegue(withIdentifier: self.detailSegue, sender: self)
+                })
             }
         }
     }

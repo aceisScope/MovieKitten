@@ -20,10 +20,14 @@ class CatViewController: BaseViewController {
     }
 
     @IBAction func catTapped(_ sender: Any) {
+        displayActivityIndicator()
+
         APIWrapper.search(title: "star") { (data, error) in
             guard error == nil else {
-                DispatchQueue.main.async {
-                    self.displayErrorMessage()
+                DispatchQueue.main.sync {
+                    self.removeActivityIndcator(completion: {
+                        self.displayErrorMessage()
+                    })
                 }
                 return
             }
@@ -32,7 +36,9 @@ class CatViewController: BaseViewController {
             guard let _ = self.movieResults[self.searchKey] else { return }
 
             DispatchQueue.main.sync {
-                self.performSegue(withIdentifier: self.movieSegue, sender: self)
+                self.removeActivityIndcator(completion: {
+                    self.performSegue(withIdentifier: self.movieSegue, sender: self)
+                })
             }
         }
     }
