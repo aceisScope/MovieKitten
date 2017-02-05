@@ -45,7 +45,7 @@ class APIWrapper: NSObject {
     }
 
     static func detail(imdbID: String, completion: @escaping Response) {
-        let url = URL(string: "https://www.omdbapi.com/?i=\(imdbID)&plot=full&r=json")!
+        let url = URL(string: "http://www.omdbapi.com/?i=\(imdbID)&plot=full&r=json")!
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 10
         let session = URLSession(configuration: config)
