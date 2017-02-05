@@ -8,13 +8,15 @@
 
 import UIKit
 
-class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching, UIScrollViewDelegate {
+class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching, UIScrollViewDelegate {
 
     var movies = [Dictionary<String, String>]()
+    var movieDetail = Dictionary<String, String>()
     
     @IBOutlet weak var collectionView: UICollectionView!
 
     private let cellIdentifier = "MovieCell"
+    private let detailSegue = "showDetailSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,29 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         return squareCellSizeToFill(containerWidth: collectionView.bounds.width, minimumCellWidth: 133, minimumCellsPerRow: 2, edgeMargin: layout.sectionInset.left, spacing: layout.minimumLineSpacing)
+    }
+
+// MARK: UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        guard let imdb = movie[imdbKey] else {
+            displayErrorMessage()
+            return
+        }
+        APIWrapper.detail(imdbID: imdb) { (data, error) in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    self.displayErrorMessage()
+                }
+                return
+            }
+
+            self.movieDetail = data as! Dictionary<String, String>
+            DispatchQueue.main.sync {
+                self.performSegue(withIdentifier: self.detailSegue, sender: self)
+            }
+        }
     }
 
 // MARK: Helper
@@ -111,6 +136,15 @@ class MovieViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     private var canSearchMore = true
 
     private let searchKey = "Search"
+    private let imdbKey = "imdbID"
+
+// MARK: Segue
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == detailSegue else { return }
+        let viewController = segue.destination as! DetailViewController
+        viewController.movie = movieDetail
+    }
 
 // MARK: Rotate
 

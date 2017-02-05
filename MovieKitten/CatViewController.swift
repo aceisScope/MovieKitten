@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CatViewController: UIViewController {
+class CatViewController: BaseViewController {
 
     private let movieSegue = "showMoviesSegue"
     private let searchKey = "Search"
@@ -41,17 +41,5 @@ class CatViewController: UIViewController {
         guard segue.identifier == movieSegue else { return }
         let viewController = segue.destination as! MovieViewController
         viewController.movies = self.movieResults[searchKey] as! [Dictionary<String, String>]
-    }
-
-    func displayErrorMessage() {
-        let alertController = UIAlertController(title: "Oops!", message: "It seems OMDB doesn't know what you're looking for", preferredStyle: .alert)
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(cancelAction)
-
-        let OKAction = UIAlertAction(title: "Try another one", style: .default)
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true)
     }
 }
