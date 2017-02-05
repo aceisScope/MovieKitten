@@ -39,8 +39,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="hu5-Dz-G2S">
-                                <rect key="frame" x="123" y="74" width="128" height="115"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat.png" translatesAutoresizingMaskIntoConstraints="NO" id="hu5-Dz-G2S">
+                                <rect key="frame" x="123" y="166.5" width="128" height="115"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="TNC-75-BYg"/>
@@ -50,14 +50,23 @@
                                     <outletCollection property="gestureRecognizers" destination="WDC-89-tIL" appends="YES" id="kBh-yt-vYb"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't know what to watch? Ask the cat! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4s-eP-Sgy">
+                                <rect key="frame" x="10" y="84" width="355" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hu5-Dz-G2S" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="ILy-Fz-Op9"/>
                             <constraint firstItem="hu5-Dz-G2S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JnM-lS-6FP"/>
+                            <constraint firstItem="hu5-Dz-G2S" firstAttribute="top" secondItem="j4s-eP-Sgy" secondAttribute="bottom" constant="20" id="bug-XE-5vF"/>
+                            <constraint firstItem="j4s-eP-Sgy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="kbQ-gX-uAA"/>
+                            <constraint firstAttribute="trailing" secondItem="j4s-eP-Sgy" secondAttribute="trailing" constant="10" id="tft-oo-7ZE"/>
+                            <constraint firstItem="j4s-eP-Sgy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="w4l-ak-hFP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eDK-9F-Tt6"/>
+                    <navigationItem key="navigationItem" title="Movie Kitten" id="eDK-9F-Tt6"/>
                     <connections>
                         <segue destination="yxh-U6-4oU" kind="show" identifier="showMoviesSegue" id="5zl-tO-Jc3"/>
                     </connections>
@@ -69,7 +78,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-516" y="81"/>
+            <point key="canvasLocation" x="-516" y="80.50974512743629"/>
         </scene>
         <!--Movie View Controller-->
         <scene sceneID="RfV-es-XFk">
@@ -249,6 +258,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cat" width="256" height="236"/>
+        <image name="cat.png" width="512" height="473"/>
     </resources>
 </document>
