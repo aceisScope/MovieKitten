@@ -10,12 +10,15 @@ import UIKit
 import Foundation
 
 class APIWrapper: NSObject {
+
     typealias Response = (_ data: Any?, _ error: Error?) -> Void
+
+    static let timeout: TimeInterval = 20
     
     static func search(title: String, page: Int = 1, completion: @escaping Response) {
         let url = URL(string: "https://www.omdbapi.com/?s=\(title)&page=\(page)")!
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 10
+        config.timeoutIntervalForRequest = timeout
         let session = URLSession(configuration: config)
         let request = URLRequest(url: url)
         
@@ -48,7 +51,7 @@ class APIWrapper: NSObject {
     static func detail(imdbID: String, completion: @escaping Response) {
         let url = URL(string: "http://www.omdbapi.com/?i=\(imdbID)&plot=full&r=json")!
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 10
+        config.timeoutIntervalForRequest = timeout
         let session = URLSession(configuration: config)
         let request = URLRequest(url: url)
 

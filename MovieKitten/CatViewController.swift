@@ -22,7 +22,7 @@ class CatViewController: BaseViewController {
     @IBAction func catTapped(_ sender: Any) {
         displayActivityIndicator()
 
-        APIWrapper.search(title: "star") { (data, error) in
+        APIWrapper.search(title: "cat") { (data, error) in
             guard error == nil else {
                 DispatchQueue.main.sync {
                     self.removeActivityIndcator(completion: {

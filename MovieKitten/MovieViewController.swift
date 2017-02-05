@@ -117,7 +117,7 @@ class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             if !isSearching && canSearchMore {
                 isSearching = true
                 currentPage += 1
-                APIWrapper.search(title: "star", page: currentPage, completion: { (data, error) in
+                APIWrapper.search(title: "cat", page: currentPage, completion: { (data, error) in
                     self.isSearching = false
 
                     guard error == nil else {

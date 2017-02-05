@@ -30,7 +30,7 @@ class APITest: XCTestCase {
             exp.fulfill()
         })
             
-        waitForExpectations(timeout: 10) { error in
+        waitForExpectations(timeout: 20) { error in
             if let error = error {
                 XCTFail("waitForExpectations timeout errored: \(error)")
             }
@@ -46,7 +46,7 @@ class APITest: XCTestCase {
             exp.fulfill()
         })
 
-        waitForExpectations(timeout: 10) { error in
+        waitForExpectations(timeout: 20) { error in
             if let error = error {
                 XCTFail("waitForExpectations timeout errored: \(error)")
             }
