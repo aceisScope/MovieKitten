@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,16 +171,17 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1B-ac-0oe">
-                                            <rect key="frame" x="127.5" y="20" width="120" height="180"/>
+                                            <rect key="frame" x="121" y="10" width="133" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="MkI-ft-9RU"/>
-                                                <constraint firstAttribute="height" constant="180" id="xB1-i1-wkW"/>
+                                                <constraint firstAttribute="width" secondItem="p1B-ac-0oe" secondAttribute="height" multiplier="2:3" id="8B9-si-wVb"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="p1B-ac-0oe" secondAttribute="bottom" constant="10" id="LgL-GM-Rrs"/>
                                         <constraint firstItem="p1B-ac-0oe" firstAttribute="centerY" secondItem="xyQ-2m-GpN" secondAttribute="centerY" id="RNR-H7-DHK"/>
                                         <constraint firstItem="p1B-ac-0oe" firstAttribute="centerX" secondItem="xyQ-2m-GpN" secondAttribute="centerX" id="VST-KK-kQc"/>
+                                        <constraint firstItem="p1B-ac-0oe" firstAttribute="top" secondItem="xyQ-2m-GpN" secondAttribute="top" constant="10" id="xcL-76-nHj"/>
                                     </constraints>
                                 </view>
                                 <prototypes>

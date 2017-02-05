@@ -89,4 +89,5 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
         return cell
     }
+
 }
