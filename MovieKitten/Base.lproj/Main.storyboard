@@ -56,9 +56,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on the kitten. It will randomly pick up something for you..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPl-OQ-nkp">
+                                <rect key="frame" x="10" y="301.5" width="355" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YPl-OQ-nkp" firstAttribute="trailing" secondItem="j4s-eP-Sgy" secondAttribute="trailing" id="1qB-vY-mXz"/>
+                            <constraint firstItem="YPl-OQ-nkp" firstAttribute="top" secondItem="hu5-Dz-G2S" secondAttribute="bottom" constant="20" id="EVm-gZ-ury"/>
+                            <constraint firstItem="YPl-OQ-nkp" firstAttribute="leading" secondItem="j4s-eP-Sgy" secondAttribute="leading" id="Jeb-vL-xbV"/>
                             <constraint firstItem="hu5-Dz-G2S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JnM-lS-6FP"/>
                             <constraint firstItem="hu5-Dz-G2S" firstAttribute="top" secondItem="j4s-eP-Sgy" secondAttribute="bottom" constant="20" id="bug-XE-5vF"/>
                             <constraint firstItem="j4s-eP-Sgy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="kbQ-gX-uAA"/>

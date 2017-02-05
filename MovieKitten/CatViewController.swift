@@ -15,6 +15,8 @@ class CatViewController: BaseViewController {
     private let searchKey = "Search"
     private var movieResults:Dictionary<String, AnyObject> = [:]
 
+    private var searchKeyword: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
