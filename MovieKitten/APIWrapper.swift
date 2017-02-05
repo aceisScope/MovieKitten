@@ -44,6 +44,7 @@ class APIWrapper: NSObject {
 
     }
 
+    // out of some unknown reason, this api is not always functioning under https, so here we use http fallback instead
     static func detail(imdbID: String, completion: @escaping Response) {
         let url = URL(string: "http://www.omdbapi.com/?i=\(imdbID)&plot=full&r=json")!
         let config = URLSessionConfiguration.default
