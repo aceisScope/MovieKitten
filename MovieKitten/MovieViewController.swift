@@ -22,6 +22,8 @@ class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = searchKeyword
+
         setupCollectionView()
     }
 
