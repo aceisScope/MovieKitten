@@ -24,7 +24,7 @@ class APITest: XCTestCase {
     func testSearchAPICallback() {
         let exp = expectation(description: "Search API returns data in callback")
 
-        APIWrapper.search(title: "star", completion: { (data, error) in
+        APIWrapper.search(title: "cat", completion: { (data, error) in
             XCTAssertNotNil(data)
             XCTAssertNil(error)
             exp.fulfill()

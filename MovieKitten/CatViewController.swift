@@ -15,7 +15,8 @@ class CatViewController: BaseViewController {
     private let searchKey = "Search"
     private var movieResults:Dictionary<String, AnyObject> = [:]
 
-    private var searchKeyword: String?
+    private var searchKeyword = ""
+    private var demoKeyWords = ["cat", "star", "batman", "happy", "christmas"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,9 @@ class CatViewController: BaseViewController {
     @IBAction func catTapped(_ sender: Any) {
         displayActivityIndicator()
 
-        APIWrapper.search(title: "cat") { (data, error) in
+        searchKeyword = randomSearch()
+
+        APIWrapper.search(title: searchKeyword) { (data, error) in
             guard error == nil else {
                 DispatchQueue.main.sync {
                     self.removeActivityIndcator(completion: {
@@ -49,5 +52,17 @@ class CatViewController: BaseViewController {
         guard segue.identifier == movieSegue else { return }
         let viewController = segue.destination as! MovieViewController
         viewController.movies = self.movieResults[searchKey] as! [Dictionary<String, String>]
+        viewController.searchKeyword = searchKeyword
+    }
+
+// MARK: Helper
+
+    func randomSearch() -> String {
+        let elementCount = demoKeyWords.endIndex - demoKeyWords.startIndex
+        if elementCount < 2 {
+            return demoKeyWords.first!
+        }
+        return demoKeyWords[Int(arc4random_uniform(UInt32(elementCount))) + demoKeyWords.startIndex]
     }
 }
+

@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     }
 
     func displayActivityIndicator() {
-        let alert = UIAlertController(title: nil, message: "Movie Kitten is working...", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Kitten is working...", preferredStyle: .alert)
 
         alert.view.tintColor = UIColor.black
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 5, width: 50, height: 50)) as UIActivityIndicatorView

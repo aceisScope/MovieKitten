@@ -10,8 +10,9 @@ import UIKit
 
 class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching, UIScrollViewDelegate {
 
+    var searchKeyword = ""
     var movies = [Dictionary<String, String>]()
-    var movieDetail = Dictionary<String, String>()
+    private var movieDetail = Dictionary<String, String>()
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -117,7 +118,7 @@ class MovieViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             if !isSearching && canSearchMore {
                 isSearching = true
                 currentPage += 1
-                APIWrapper.search(title: "cat", page: currentPage, completion: { (data, error) in
+                APIWrapper.search(title: searchKeyword, page: currentPage, completion: { (data, error) in
                     self.isSearching = false
 
                     guard error == nil else {
