@@ -48,7 +48,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
 
-        poster.loadImageFromServerURL(urlString: posterURL)
+        let imageLoader = ImageLoader.shared
+        imageLoader.loadImageFromServerURL(urlString: posterURL) { (image, url) in
+            self.poster.image = image
+        }
     }
 
 // MARK: UITableViewDataSource 

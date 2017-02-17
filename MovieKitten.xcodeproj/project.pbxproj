@@ -14,6 +14,8 @@
 		6D0385171E473636000F6B4F /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D0385151E473636000F6B4F /* cat.png */; };
 		6D0385181E473636000F6B4F /* placeholder_cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D0385161E473636000F6B4F /* placeholder_cat.jpg */; };
 		6D03851A1E473F9A000F6B4F /* DetailMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0385191E473F9A000F6B4F /* DetailMovieTableViewCell.swift */; };
+		6DA016EC1E576F500028B9A0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA016EB1E576F500028B9A0 /* ImageLoader.swift */; };
+		6DA016EE1E5773B80028B9A0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA016ED1E5773B80028B9A0 /* ImageCache.swift */; };
 		6DDE86E91E4908B800FE5705 /* CatViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDE86E81E4908B800FE5705 /* CatViewControllerTest.swift */; };
 		BF8B3DAE1E42583B00BBE6BD /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8B3DAD1E42583B00BBE6BD /* APITest.swift */; };
 		BF9D39231E41194700924711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D39221E41194700924711 /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 		6D0385151E473636000F6B4F /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		6D0385161E473636000F6B4F /* placeholder_cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder_cat.jpg; sourceTree = "<group>"; };
 		6D0385191E473F9A000F6B4F /* DetailMovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMovieTableViewCell.swift; sourceTree = "<group>"; };
+		6DA016EB1E576F500028B9A0 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		6DA016ED1E5773B80028B9A0 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		6DDE86E81E4908B800FE5705 /* CatViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatViewControllerTest.swift; sourceTree = "<group>"; };
 		BF8B3DAD1E42583B00BBE6BD /* APITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		BF9D391F1E41194700924711 /* MovieKitten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieKitten.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,16 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		6DA016EA1E576EEA0028B9A0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D39421E411C6400924711 /* APIWrapper.swift */,
+				6DA016EB1E576F500028B9A0 /* ImageLoader.swift */,
+				6DA016ED1E5773B80028B9A0 /* ImageCache.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		BF9D39161E41194600924711 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +118,7 @@
 		BF9D39211E41194700924711 /* MovieKitten */ = {
 			isa = PBXGroup;
 			children = (
+				6DA016EA1E576EEA0028B9A0 /* Helper */,
 				BF9D39221E41194700924711 /* AppDelegate.swift */,
 				6D0385121E473198000F6B4F /* BaseViewController.swift */,
 				6D03850C1E45175D000F6B4F /* CatViewController.swift */,
@@ -111,7 +126,6 @@
 				6D03850E1E45E966000F6B4F /* MovieCollectionViewCell.swift */,
 				6D0385101E466A75000F6B4F /* DetailViewController.swift */,
 				6D0385191E473F9A000F6B4F /* DetailMovieTableViewCell.swift */,
-				BF9D39421E411C6400924711 /* APIWrapper.swift */,
 				BF9D39261E41194700924711 /* Main.storyboard */,
 				BF9D39291E41194700924711 /* Assets.xcassets */,
 				BF9D392B1E41194700924711 /* LaunchScreen.storyboard */,
@@ -237,11 +251,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DA016EE1E5773B80028B9A0 /* ImageCache.swift in Sources */,
 				BF9D39251E41194700924711 /* MovieViewController.swift in Sources */,
 				6D03850D1E45175D000F6B4F /* CatViewController.swift in Sources */,
 				6D03850F1E45E966000F6B4F /* MovieCollectionViewCell.swift in Sources */,
 				6D0385111E466A75000F6B4F /* DetailViewController.swift in Sources */,
 				BF9D39431E411C6400924711 /* APIWrapper.swift in Sources */,
+				6DA016EC1E576F500028B9A0 /* ImageLoader.swift in Sources */,
 				6D0385131E473198000F6B4F /* BaseViewController.swift in Sources */,
 				BF9D39231E41194700924711 /* AppDelegate.swift in Sources */,
 				6D03851A1E473F9A000F6B4F /* DetailMovieTableViewCell.swift in Sources */,
