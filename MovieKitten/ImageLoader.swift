@@ -15,19 +15,6 @@ class ImageLoader {
 
     let cache = ImageCache()
 
-    private var memoryWarningObserver: NSObjectProtocol!
-
-// MARK: - Lifecycle
-    private init() {
-        memoryWarningObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { notification in
-            self.cache.removeAllObjects()
-        }
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(memoryWarningObserver)
-    }
-
     func loadImageFromServerURL(urlString: String, completion: @escaping (_ image: UIImage?, _ url: String) -> Void) {
 
         let image = cache.object(forKey: urlString as AnyObject)
